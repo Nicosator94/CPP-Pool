@@ -1,9 +1,13 @@
 CPP = c++
 CPPFLAGS = -Wall -Wextra -Werror -MMD -std=c++98
 
-HEADERS = phonebook.hpp
+HEADERS = phonebook.h
 
-SOURCES = phonebook.cpp
+SOURCES = main.cpp \
+			PhoneBook.cpp \
+			Contact.cpp \
+			search.cpp \
+			add.cpp
 
 SRC = ./
 DIR = objs_deps/
