@@ -1,13 +1,13 @@
-CC = c++
-CFLAGS = -Wall -Wextra -Werror -MMD -std=c++98
+CPP = c++
+CPPFLAGS = -Wall -Wextra -Werror -MMD -std=c++98
 
-HEADERS = 
+HEADERS = phonebook.hpp
 
-SOURCES = megaphone.cpp
+SOURCES = phonebook.cpp
 
-SRC = srcs/
+SRC = ./
 DIR = objs_deps/
-INC = includes/
+INC = ./
 
 INCLUDES = -I/$(INCS)
 
@@ -16,19 +16,19 @@ OBJS = $(addprefix $(DIR), $(OBJ))
 DEPS = $(addprefix $(DIR), $(DEP))
 INCS = $(addprefix $(INC), $(HEADERS))
 
-OBJ = $(SOURCES:.c=.o)
-DEP = $(SOURCES:.c=.d)
+OBJ = $(SOURCES:.cpp=.o)
+DEP = $(SOURCES:.cpp=.d)
 
-NAME = cub3D
+NAME = phonebook
 
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	@$(CC) $(CFLAGS) $(INCLUDES) -o $(NAME) $(OBJS)
+	@$(CPP) $(CPPFLAGS) $(INCLUDES) -o $(NAME) $(OBJS)
 	@echo "Compilation completed"
 
-$(DIR)%.o : $(SRC)%.c | $(DIR)
-	@$(CC) $(CFLAGS) $(INCLUDES) -o $@ -c $<
+$(DIR)%.o : $(SRC)%.cpp | $(DIR)
+	@$(CPP) $(CPPFLAGS) $(INCLUDES) -o $@ -c $<
 
 $(DIR) :
 	@echo "Start Compilation for $(NAME)"
