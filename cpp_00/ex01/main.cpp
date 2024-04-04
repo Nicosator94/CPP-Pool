@@ -6,14 +6,13 @@
 /*   By: niromano <niromano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 10:34:50 by niromano          #+#    #+#             */
-/*   Updated: 2024/04/04 13:00:01 by niromano         ###   ########.fr       */
+/*   Updated: 2024/04/04 14:27:17 by niromano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "phonebook.h"
 
-int main()
-{
+int	main() {
 	PhoneBook phonebook;
 	std::string chaine;
 	std::getline(std::cin, chaine);

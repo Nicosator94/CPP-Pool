@@ -6,7 +6,7 @@
 /*   By: niromano <niromano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 12:28:35 by niromano          #+#    #+#             */
-/*   Updated: 2024/04/04 13:05:10 by niromano         ###   ########.fr       */
+/*   Updated: 2024/04/04 14:27:45 by niromano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,18 @@
 PhoneBook::PhoneBook() {}
 PhoneBook::~PhoneBook() {}
 
-void	PhoneBook::add()
-{
+void	PhoneBook::add() {
 	shift_all();
 	contact[0].create_contact();
 }
 
-void	PhoneBook::shift_all()
-{
+void	PhoneBook::shift_all() {
 	for(int i = 7; i > 0; i--) {
 		contact[i] = contact[i - 1];
 	}
 }
 
-void	PhoneBook::display()
-{
+void	PhoneBook::display() {
 	std::cout << "+----------+----------+----------+----------+" << std::endl;
 	std::cout << "|  Index   |  First   |   Last   |   Nick   |" << std::endl;
 	std::cout << "+----------+----------+----------+----------+" << std::endl;
@@ -43,8 +40,7 @@ void	PhoneBook::display()
 	std::cout << "+----------+----------+----------+----------+" << std::endl;
 }
 
-void	PhoneBook::ask_index()
-{
+void	PhoneBook::ask_index() {
 	std::string index;
 	std::cout << "Enter index : ";
 	std::getline(std::cin, index);
@@ -64,20 +60,17 @@ void	PhoneBook::ask_index()
 	}
 	if (check_contact(index))
 		std::cout << "No contact register for index : " << index << std::endl;
-	else {
+	else
 		contact[index[0] - 49].display_all();
-	}
 }
 
-int	PhoneBook::check_index(std::string index)
-{
+int	PhoneBook::check_index(std::string index) {
 	if (index[0] < '1' || index[0] > '8' || index[1] != '\0')
 		return 1;
 	return 0;
 }
 
-int	PhoneBook::check_contact(std::string index)
-{
+int	PhoneBook::check_contact(std::string index) {
 	if (contact[index[0] - 49].check())
 		return 1;
 	return 0;
