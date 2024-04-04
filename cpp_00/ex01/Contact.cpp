@@ -6,7 +6,7 @@
 /*   By: niromano <niromano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 12:27:51 by niromano          #+#    #+#             */
-/*   Updated: 2024/04/04 12:32:29 by niromano         ###   ########.fr       */
+/*   Updated: 2024/04/04 12:46:55 by niromano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,14 @@ int Contact::check()
 	return 0;
 }
 
+void	Contact::create_contact()
+{
+	for(int i = 0; i < 5; i++) {
+		if (add_info(i))
+			return;
+	}
+}
+
 int	Contact::add_info(int info)
 {
 	std::string buf;
@@ -102,12 +110,4 @@ int	Contact::add_info(int info)
 			break;
 	}
 	return 0;
-}
-
-void	Contact::create_contact()
-{
-	for(int i = 0; i < 5; i++) {
-		if (add_info(i))
-			return;
-	}
 }
