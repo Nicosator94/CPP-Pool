@@ -5,9 +5,7 @@ HEADERS = phonebook.h
 
 SOURCES = main.cpp \
 			PhoneBook.cpp \
-			Contact.cpp \
-			search.cpp \
-			add.cpp
+			Contact.cpp
 
 SRC = ./
 DIR = objs_deps/
