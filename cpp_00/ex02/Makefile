@@ -3,7 +3,8 @@ CPPFLAGS = -Wall -Wextra -Werror -MMD -std=c++98
 
 HEADERS = 
 
-SOURCES = 
+SOURCES = tests.cpp \
+			Account.cpp
 
 SRC = ./
 DIR = objs_deps/
@@ -19,7 +20,7 @@ INCS = $(addprefix $(INC), $(HEADERS))
 OBJ = $(SOURCES:.cpp=.o)
 DEP = $(SOURCES:.cpp=.d)
 
-NAME = phonebook
+NAME = change
 
 all : $(NAME)
 
