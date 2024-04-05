@@ -6,7 +6,7 @@
 /*   By: niromano <niromano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 12:28:35 by niromano          #+#    #+#             */
-/*   Updated: 2024/04/05 10:25:03 by niromano         ###   ########.fr       */
+/*   Updated: 2024/04/05 14:32:22 by niromano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@ PhoneBook::~PhoneBook() {}
 
 void	PhoneBook::add() {
 	shift_all();
-	contact[0].create_contact();
+	this->contact[0].create_contact();
 }
 
 void	PhoneBook::shift_all() {
 	for(int i = 7; i > 0; i--) {
-		contact[i] = contact[i - 1];
+		this->contact[i] = this->contact[i - 1];
 	}
 }
 
@@ -32,9 +32,9 @@ void	PhoneBook::display() {
 	std::cout << "+----------+----------+----------+----------+" << std::endl;
 	for(int i = 0; i <= 7; i++) {
 		std::cout << "|         " << i + 1 << "|";
-		std::cout << contact[i].display_info('F') << "|";
-		std::cout << contact[i].display_info('L') << "|";
-		std::cout << contact[i].display_info('N') << "|";
+		std::cout << this->contact[i].display_info('F') << "|";
+		std::cout << this->contact[i].display_info('L') << "|";
+		std::cout << this->contact[i].display_info('N') << "|";
 		std::cout << std::endl;
 	}
 	std::cout << "+----------+----------+----------+----------+" << std::endl;
@@ -64,7 +64,7 @@ void	PhoneBook::ask_index() {
 	if (check_contact(index))
 		std::cout << "No contact register for index : " << index << std::endl;
 	else
-		contact[index[0] - 49].display_all();
+		this->contact[index[0] - 49].display_all();
 }
 
 int	PhoneBook::check_index(std::string index) {
@@ -74,7 +74,7 @@ int	PhoneBook::check_index(std::string index) {
 }
 
 int	PhoneBook::check_contact(std::string index) {
-	if (contact[index[0] - 49].check())
+	if (this->contact[index[0] - 49].check())
 		return 1;
 	return 0;
 }
