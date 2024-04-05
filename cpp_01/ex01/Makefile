@@ -1,10 +1,11 @@
 CPP = c++
 CPPFLAGS = -Wall -Wextra -Werror -MMD -std=c++98
 
-HEADERS = 
+HEADERS = Zombie.h
 
-SOURCES = tests.cpp \
-			Account.cpp
+SOURCES = main.cpp \
+			Zombie.cpp \
+			zombieHorde.cpp
 
 SRC = ./
 DIR = objs_deps/
@@ -20,7 +21,7 @@ INCS = $(addprefix $(INC), $(HEADERS))
 OBJ = $(SOURCES:.cpp=.o)
 DEP = $(SOURCES:.cpp=.d)
 
-NAME = log
+NAME = zombiehorde
 
 all : $(NAME)
 

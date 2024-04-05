@@ -6,7 +6,7 @@
 /*   By: niromano <niromano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 13:36:24 by niromano          #+#    #+#             */
-/*   Updated: 2024/04/05 14:39:27 by niromano         ###   ########.fr       */
+/*   Updated: 2024/04/05 16:26:59 by niromano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,12 @@
 class	Zombie{
 
 	public :
-	
-			Zombie();
-			~Zombie();
-	void	announce();
-	void	create(std::string s_name);
+
+				Zombie();
+				~Zombie();
+
+		void	announce();
+		void	create(std::string name);
 	
 	private :
 

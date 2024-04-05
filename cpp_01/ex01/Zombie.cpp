@@ -1,32 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: niromano <niromano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/05 13:36:24 by niromano          #+#    #+#             */
-/*   Updated: 2024/04/05 14:39:27 by niromano         ###   ########.fr       */
+/*   Created: 2024/04/05 13:35:29 by niromano          #+#    #+#             */
+/*   Updated: 2024/04/05 16:26:47 by niromano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-#define ZOMBIE_HPP
-
 #include "Zombie.h"
 
-class	Zombie{
+Zombie::Zombie() {}
+Zombie::~Zombie() {}
 
-	public :
-	
-			Zombie();
-			~Zombie();
-	void	announce();
-	void	create(std::string s_name);
-	
-	private :
+void	Zombie::announce() {
+	std::cout << this->name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+}
 
-	std::string	name;
-};
-
-#endif
+void	Zombie::create(std::string name) {
+	this->name = name;
+}
