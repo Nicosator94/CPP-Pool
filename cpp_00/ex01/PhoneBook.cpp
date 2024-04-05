@@ -6,7 +6,7 @@
 /*   By: niromano <niromano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 12:28:35 by niromano          #+#    #+#             */
-/*   Updated: 2024/04/04 14:27:45 by niromano         ###   ########.fr       */
+/*   Updated: 2024/04/05 10:25:03 by niromano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,9 @@ void	PhoneBook::ask_index() {
 	}
 	while (check_index(index)) {
 		std::cout << "Choose a correct index !" << std::endl;
+		std::cout << std::endl;
 		display();
+		std::cout << std::endl;
 		std::cout << "Enter index : ";
 		std::getline(std::cin, index);
 		if (!std::cin) {
@@ -58,6 +60,7 @@ void	PhoneBook::ask_index() {
 			return;
 		}
 	}
+	std::cout << std::endl;
 	if (check_contact(index))
 		std::cout << "No contact register for index : " << index << std::endl;
 	else

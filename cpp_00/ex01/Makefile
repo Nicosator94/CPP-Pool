@@ -1,5 +1,5 @@
-CPP = c++
-CPPFLAGS = -Wall -Wextra -Werror -MMD -std=c++98
+CXX = c++
+CXXFLAGS = -Wall -Wextra -Werror -MMD -std=c++98
 
 HEADERS = phonebook.h
 
@@ -26,11 +26,11 @@ NAME = phonebook
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	@$(CPP) $(CPPFLAGS) $(INCLUDES) -o $(NAME) $(OBJS)
+	@$(CXX) $(CXXFLAGS) $(INCLUDES) -o $(NAME) $(OBJS)
 	@echo "Compilation completed"
 
 $(DIR)%.o : $(SRC)%.cpp | $(DIR)
-	@$(CPP) $(CPPFLAGS) $(INCLUDES) -o $@ -c $<
+	@$(CXX) $(CXXFLAGS) $(INCLUDES) -o $@ -c $<
 
 $(DIR) :
 	@echo "Start Compilation for $(NAME)"

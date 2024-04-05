@@ -1,5 +1,5 @@
-CPP = c++
-CPPFLAGS = -Wall -Wextra -Werror -MMD -std=c++98
+CXX = c++
+CXXFLAGS = -Wall -Wextra -Werror -MMD -std=c++98
 
 SOURCES = megaphone.cpp
 
@@ -18,11 +18,11 @@ NAME = megaphone
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	@$(CPP) $(CPPFLAGS) -o $(NAME) $(OBJS)
+	@$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
 	@echo "Compilation completed"
 
 $(DIR)%.o : $(SRC)%.cpp | $(DIR)
-	@$(CPP) $(CPPFLAGS) -o $@ -c $<
+	@$(CXX) $(CXXFLAGS) -o $@ -c $<
 
 $(DIR) :
 	@echo "Start Compilation for $(NAME)"
