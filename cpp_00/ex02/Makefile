@@ -20,7 +20,7 @@ INCS = $(addprefix $(INC), $(HEADERS))
 OBJ = $(SOURCES:.cpp=.o)
 DEP = $(SOURCES:.cpp=.d)
 
-NAME = change
+NAME = log
 
 all : $(NAME)
 
