@@ -1,7 +1,10 @@
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -MMD -std=c++98
 
-SOURCES = main.cpp
+SOURCES = main.cpp \
+			Weapon.cpp \
+			HumanA.cpp \
+			HumanB.cpp
 
 SRC = ./
 DIR = objs_deps/
@@ -13,7 +16,7 @@ DEPS = $(addprefix $(DIR), $(DEP))
 OBJ = $(SOURCES:.cpp=.o)
 DEP = $(SOURCES:.cpp=.d)
 
-NAME = brain
+NAME = attack
 
 all : $(NAME)
 
