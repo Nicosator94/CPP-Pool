@@ -1,7 +1,7 @@
 CPP = c++
 CPPFLAGS = -Wall -Wextra -Werror -MMD -std=c++98
 
-HEADERS = Zombie.h
+HEADERS = Zombie.hpp
 
 SOURCES = main.cpp \
 			Zombie.cpp \

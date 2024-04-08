@@ -6,11 +6,11 @@
 /*   By: niromano <niromano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 13:34:51 by niromano          #+#    #+#             */
-/*   Updated: 2024/04/05 14:23:55 by niromano         ###   ########.fr       */
+/*   Updated: 2024/04/08 16:42:08 by niromano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.h"
+#include "Zombie.hpp"
 
 int main() {
 	Zombie *zomb = newZombie("Michel 1");

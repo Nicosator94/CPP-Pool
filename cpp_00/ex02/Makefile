@@ -1,7 +1,7 @@
 CPP = c++
 CPPFLAGS = -Wall -Wextra -Werror -MMD -std=c++98
 
-HEADERS = 
+HEADERS = Account.hpp
 
 SOURCES = tests.cpp \
 			Account.cpp

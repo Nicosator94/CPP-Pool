@@ -1,36 +1,28 @@
-CPP = c++
-CPPFLAGS = -Wall -Wextra -Werror -MMD -std=c++98
+CXX = c++
+CXXFLAGS = -Wall -Wextra -Werror -MMD -std=c++98
 
-HEADERS = Zombie.hpp
-
-SOURCES = main.cpp \
-			Zombie.cpp \
-			zombieHorde.cpp
+SOURCES = main.cpp
 
 SRC = ./
 DIR = objs_deps/
-INC = ./
-
-INCLUDES = -I/$(INCS)
 
 SRCS = $(addprefix $(SRC), $(SOURCES))
 OBJS = $(addprefix $(DIR), $(OBJ))
 DEPS = $(addprefix $(DIR), $(DEP))
-INCS = $(addprefix $(INC), $(HEADERS))
 
 OBJ = $(SOURCES:.cpp=.o)
 DEP = $(SOURCES:.cpp=.d)
 
-NAME = zombiehorde
+NAME = brain
 
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	@$(CPP) $(CPPFLAGS) $(INCLUDES) -o $(NAME) $(OBJS)
+	@$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
 	@echo "Compilation completed"
 
 $(DIR)%.o : $(SRC)%.cpp | $(DIR)
-	@$(CPP) $(CPPFLAGS) $(INCLUDES) -o $@ -c $<
+	@$(CXX) $(CXXFLAGS) -o $@ -c $<
 
 $(DIR) :
 	@echo "Start Compilation for $(NAME)"

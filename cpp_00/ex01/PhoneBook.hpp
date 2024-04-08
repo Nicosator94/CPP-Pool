@@ -6,14 +6,15 @@
 /*   By: niromano <niromano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 10:34:46 by niromano          #+#    #+#             */
-/*   Updated: 2024/04/04 12:56:33 by niromano         ###   ########.fr       */
+/*   Updated: 2024/04/08 16:49:03 by niromano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-#define PHONEBOOK_HPP
+#pragma once
 
-#include "phonebook.h"
+#include <iostream>
+#include <string>
+#include "Contact.hpp"
 
 class PhoneBook{
 
@@ -32,5 +33,3 @@ class PhoneBook{
 
 	Contact contact[8];
 };
-
-#endif

@@ -6,11 +6,11 @@
 /*   By: niromano <niromano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 13:35:29 by niromano          #+#    #+#             */
-/*   Updated: 2024/04/05 16:26:47 by niromano         ###   ########.fr       */
+/*   Updated: 2024/04/08 16:38:16 by niromano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.h"
+#include "Zombie.hpp"
 
 Zombie::Zombie() {}
 Zombie::~Zombie() {}

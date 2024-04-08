@@ -1,7 +1,7 @@
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -MMD -std=c++98
 
-HEADERS = phonebook.h
+HEADERS = PhoneBook.hpp
 
 SOURCES = main.cpp \
 			PhoneBook.cpp \

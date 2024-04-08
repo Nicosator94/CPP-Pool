@@ -6,14 +6,13 @@
 /*   By: niromano <niromano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 11:44:42 by niromano          #+#    #+#             */
-/*   Updated: 2024/04/04 12:31:25 by niromano         ###   ########.fr       */
+/*   Updated: 2024/04/08 16:47:43 by niromano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACT_HPP
-#define CONTACT_HPP
+#pragma once
 
-#include "phonebook.h"
+#include <string>
 
 class Contact{
 
@@ -35,5 +34,3 @@ class Contact{
 	std::string phone_number;
 	std::string darkest_secret;
 };
-
-#endif

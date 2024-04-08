@@ -6,14 +6,14 @@
 /*   By: niromano <niromano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 13:36:24 by niromano          #+#    #+#             */
-/*   Updated: 2024/04/05 16:26:59 by niromano         ###   ########.fr       */
+/*   Updated: 2024/04/08 16:40:00 by niromano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-#define ZOMBIE_HPP
+#pragma once
 
-#include "Zombie.h"
+#include <iostream>
+#include <string>
 
 class	Zombie{
 
@@ -30,4 +30,4 @@ class	Zombie{
 	std::string	name;
 };
 
-#endif
+Zombie* zombieHorde(int N, std::string name);
