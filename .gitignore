@@ -6,5 +6,7 @@ zombiehorde
 attack
 replace
 *.replace
+harl_complain
+HarlFilter
 objs_deps
 .vscode
