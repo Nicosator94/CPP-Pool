@@ -9,6 +9,7 @@ replace
 harl_complain
 HarlFilter
 fixed
-fixed_int_float
+fixed_point
+fixed_operator
 objs_deps
 .vscode

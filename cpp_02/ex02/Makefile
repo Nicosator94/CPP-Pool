@@ -14,7 +14,7 @@ DEPS = $(addprefix $(DIR), $(DEP))
 OBJ = $(SOURCES:.cpp=.o)
 DEP = $(SOURCES:.cpp=.d)
 
-NAME = fixed_point
+NAME = fixed_operator
 
 all : $(NAME)
 
