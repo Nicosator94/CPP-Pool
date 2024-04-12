@@ -6,7 +6,7 @@
 /*   By: niromano <niromano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 13:20:08 by niromano          #+#    #+#             */
-/*   Updated: 2024/04/12 16:39:25 by niromano         ###   ########.fr       */
+/*   Updated: 2024/04/12 16:44:44 by niromano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,8 @@
 #include "Fixed.hpp"
 
 Fixed::Fixed() : _rawbits(0) {}
-
 Fixed::Fixed(const int &value) : _rawbits(value * (1 << _bits)) {}
-
 Fixed::Fixed(const float &value) : _rawbits(roundf(value * (1 << _bits))) {}
-
 Fixed::Fixed(const Fixed &copy) : _rawbits(copy.getRawBits()) {}
 
 Fixed& Fixed::operator=(const Fixed &fixed) {
@@ -61,14 +58,8 @@ Fixed	Fixed::operator--(int) {
 }
 
 Fixed::~Fixed() {}
-
-int Fixed::getRawBits() const {
-	return this->_rawbits;
-}
-
-void Fixed::setRawBits(const int raw) {
-	this->_rawbits = raw;
-}
+int Fixed::getRawBits() const {return this->_rawbits;}
+void Fixed::setRawBits(const int raw) {this->_rawbits = raw;}
 
 float	Fixed::toFloat() const {
 	return static_cast<float> (this->getRawBits()) / (1 << this->_bits);
