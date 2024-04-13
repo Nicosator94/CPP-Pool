@@ -6,7 +6,7 @@
 /*   By: niromano <niromano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 16:39:04 by niromano          #+#    #+#             */
-/*   Updated: 2024/04/13 18:06:13 by niromano         ###   ########.fr       */
+/*   Updated: 2024/04/13 18:11:31 by niromano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class ClapTrap {
 	void	takeDamage(unsigned int amount);
 	void	beRepaired(unsigned int amount);
 
-	private :
+	protected :
 
 	const std::string	_name;
 	int					_hitPoints;

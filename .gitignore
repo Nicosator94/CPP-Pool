@@ -13,5 +13,6 @@ fixed_point
 fixed_operator
 bsp
 claptrap
+scavtrap
 objs_deps
 .vscode
