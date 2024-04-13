@@ -11,5 +11,6 @@ HarlFilter
 fixed
 fixed_point
 fixed_operator
+bsp
 objs_deps
 .vscode

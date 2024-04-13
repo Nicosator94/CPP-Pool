@@ -6,11 +6,13 @@
 /*   By: niromano <niromano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 13:20:10 by niromano          #+#    #+#             */
-/*   Updated: 2024/04/13 02:30:36 by niromano         ###   ########.fr       */
+/*   Updated: 2024/04/13 02:29:09 by niromano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
+
+#include <ostream>
 
 class Fixed {
 
