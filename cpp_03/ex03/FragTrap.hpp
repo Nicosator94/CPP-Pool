@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: niromano <niromano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/13 16:38:16 by niromano          #+#    #+#             */
-/*   Updated: 2024/04/15 16:25:06 by niromano         ###   ########.fr       */
+/*   Created: 2024/04/15 14:54:01 by niromano          #+#    #+#             */
+/*   Updated: 2024/04/15 15:30:26 by niromano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#pragma once
+
 #include "ClapTrap.hpp"
 
-int main() {
-	ClapTrap a("Nicolas");
-	ClapTrap b("Seb");
-	ClapTrap c(a);
-	a.attack("Mathieu");
-	a.takeDamage(5);
-	a.beRepaired(15);
-	a.takeDamage(1000);
-	a.beRepaired(10);
-	a.attack("Brice");
-	a.takeDamage(1000);
-	b.takeDamage(1);
-	b = a;
-	b.takeDamage(1);
-	return 0;
-}
+class FragTrap : public virtual ClapTrap {
+
+	public :
+
+	FragTrap(const std::string &name);
+	FragTrap(const FragTrap &copy);
+	FragTrap& operator=(const FragTrap &fragtrap);
+	~FragTrap();
+	void	highFivesGuys();
+};
