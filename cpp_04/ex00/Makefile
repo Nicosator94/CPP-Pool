@@ -1,10 +1,12 @@
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -MMD -std=c++98 -Wshadow -Wno-shadow
+CXXFLAGS = -Wall -Wextra -Werror -MMD -std=c++98
 
 SOURCES = main.cpp \
 			Animal.cpp \
 			Dog.cpp \
-			Cat.cpp
+			Cat.cpp \
+			WrongAnimal.cpp \
+			WrongCat.cpp
 
 SRC = ./
 DIR = objs_deps/
