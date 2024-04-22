@@ -6,7 +6,7 @@
 /*   By: niromano <niromano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 10:34:50 by niromano          #+#    #+#             */
-/*   Updated: 2024/04/08 16:45:17 by niromano         ###   ########.fr       */
+/*   Updated: 2024/04/22 10:33:43 by niromano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int	main() {
 			std::cout << std::endl;
 			phonebook.add();
 			std::cout << std::endl;
+			display_options();
 		}
 		else if (chaine == "SEARCH") {
 			std::cout << std::endl;
@@ -44,6 +45,7 @@ int	main() {
 			std::cout << std::endl;
 			phonebook.ask_index();
 			std::cout << std::endl;
+			display_options();
 		}
 		std::getline(std::cin,chaine);
 		if (!std::cin) {
