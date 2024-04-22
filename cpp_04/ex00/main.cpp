@@ -6,7 +6,7 @@
 /*   By: niromano <niromano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 18:57:02 by niromano          #+#    #+#             */
-/*   Updated: 2024/04/16 00:10:44 by niromano         ###   ########.fr       */
+/*   Updated: 2024/04/22 13:49:23 by niromano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
 
-int main() { {
+int main() {
+	{
 		const Animal* meta = new Animal();
 		const Animal* j = new Dog();
 		const Animal* i = new Cat();
@@ -31,7 +32,8 @@ int main() { {
 		delete i;
 		delete meta;
 	}
-	std::cout << "==============" << std::endl; {
+	std::cout << "==============" << std::endl;
+	{
 		const WrongAnimal* meta = new WrongAnimal();
 		const WrongAnimal* i = new WrongCat();
 		std::cout << i->getType() << " " << std::endl;

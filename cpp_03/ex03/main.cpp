@@ -6,7 +6,7 @@
 /*   By: niromano <niromano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 16:38:16 by niromano          #+#    #+#             */
-/*   Updated: 2024/04/15 16:09:05 by niromano         ###   ########.fr       */
+/*   Updated: 2024/04/22 13:43:00 by niromano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int main() {
 	DiamondTrap a("Nicolas");
 	DiamondTrap b("Seb");
 	DiamondTrap c(a);
+	std::cout << std::endl;
 	a.whoAmI();
 	a.attack("Mathieu");
 	a.takeDamage(5);
@@ -30,6 +31,7 @@ int main() {
 	a.takeDamage(1000);
 	b.takeDamage(1);
 	b = a;
+	std::cout << std::endl;
 	b.takeDamage(1);
 	a.whoAmI();
 	return 0;

@@ -6,7 +6,7 @@
 /*   By: niromano <niromano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 17:44:23 by niromano          #+#    #+#             */
-/*   Updated: 2024/04/15 16:19:57 by niromano         ###   ########.fr       */
+/*   Updated: 2024/04/22 13:41:40 by niromano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ ScavTrap::ScavTrap(const std::string &name) : ClapTrap(name){
 }
 
 ScavTrap::ScavTrap(const ScavTrap &copy) : ClapTrap(copy._name){
-	std::cout << "ScavTrap : Copy constructor called by " << this->_name << std::endl;
+	std::cout << "ScavTrap : Copy constructor called with " << this->_name << std::endl;
 	this->_hitPoints = copy._hitPoints;
 	this->_energyPoints = copy._energyPoints;
 	this->_attackDamage = copy._attackDamage;

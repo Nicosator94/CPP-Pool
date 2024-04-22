@@ -6,7 +6,7 @@
 /*   By: niromano <niromano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 16:38:16 by niromano          #+#    #+#             */
-/*   Updated: 2024/04/13 18:28:34 by niromano         ###   ########.fr       */
+/*   Updated: 2024/04/22 13:36:43 by niromano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int main() {
 	ScavTrap a("Nicolas");
 	ScavTrap b("Seb");
 	ScavTrap c(a);
+	std::cout << std::endl;
 	a.guardGate();
 	a.attack("Mathieu");
 	a.takeDamage(5);
@@ -28,6 +29,7 @@ int main() {
 	a.takeDamage(1000);
 	b.takeDamage(1);
 	b = a;
+	std::cout << std::endl;
 	b.takeDamage(1);
 	a.guardGate();
 	return 0;

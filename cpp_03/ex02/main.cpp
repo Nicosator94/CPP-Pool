@@ -6,7 +6,7 @@
 /*   By: niromano <niromano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 16:38:16 by niromano          #+#    #+#             */
-/*   Updated: 2024/04/15 15:01:56 by niromano         ###   ########.fr       */
+/*   Updated: 2024/04/22 13:40:15 by niromano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int main() {
 	FragTrap a("Nicolas");
 	FragTrap b("Seb");
 	FragTrap c(a);
+	std::cout << std::endl;
 	a.highFivesGuys();
 	a.attack("Mathieu");
 	a.takeDamage(5);
@@ -29,6 +30,7 @@ int main() {
 	a.takeDamage(1000);
 	b.takeDamage(1);
 	b = a;
+	std::cout << std::endl;
 	b.takeDamage(1);
 	a.highFivesGuys();
 	return 0;

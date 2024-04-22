@@ -6,7 +6,7 @@
 /*   By: niromano <niromano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 18:48:10 by niromano          #+#    #+#             */
-/*   Updated: 2024/04/15 19:51:36 by niromano         ###   ########.fr       */
+/*   Updated: 2024/04/22 13:50:14 by niromano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,5 @@ Animal::~Animal() {
 std::string	Animal::getType() const {return this->_type;}
 
 void	Animal::makeSound() const {
-	std::cout << "Whoosh whoosh ..." << std::endl;
+	std::cout << "..." << std::endl;
 }

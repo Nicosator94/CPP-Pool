@@ -6,7 +6,7 @@
 /*   By: niromano <niromano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 18:57:02 by niromano          #+#    #+#             */
-/*   Updated: 2024/04/16 18:38:07 by niromano         ###   ########.fr       */
+/*   Updated: 2024/04/22 14:04:19 by niromano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 #include "Dog.hpp"
 #include "Cat.hpp"
 
-int main() { {
+int main() {
+	{
 		const Animal* meta = new Animal();
 		const Animal* j = new Dog();
 		const Animal* i = new Cat();
@@ -28,17 +29,16 @@ int main() { {
 		delete j;
 		delete i;
 		delete meta;
-		std::cout << "==============" << std::endl;
+	}
+	std::cout << "==============" << std::endl;
+	{
 		Dog a;
-		std::cout << "==============" << std::endl;
 		Dog b(a);
-		std::cout << "==============" << std::endl;
 		Dog c;
-		std::cout << "==============" << std::endl;
 		c = a;
 		c.displayBrain();
 	}
-	std::cout << "=======//////////////////=======" << std::endl;
+	std::cout << "==============" << std::endl;
 	{
 		const Animal *meta[10];
 		for (int i = 0; i < 10; i++) {
@@ -47,6 +47,7 @@ int main() { {
 			else
 				meta[i] = new Cat();
 		}
+		std::cout << std::endl;
 		for (int i = 0; i < 10; i++) {
 			delete meta[i];
 		}

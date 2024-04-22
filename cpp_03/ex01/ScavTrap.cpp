@@ -6,7 +6,7 @@
 /*   By: niromano <niromano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 17:44:23 by niromano          #+#    #+#             */
-/*   Updated: 2024/04/13 18:42:34 by niromano         ###   ########.fr       */
+/*   Updated: 2024/04/22 13:34:20 by niromano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,21 @@
 #include "ScavTrap.hpp"
 
 ScavTrap::ScavTrap(const std::string &name) : ClapTrap(name){
-	std::cout << "ScavTrap : Constructor called for " << this->_name << std::endl << std::endl;
+	std::cout << "ScavTrap : Constructor called for " << this->_name << std::endl;
 	this->_hitPoints = 100;
 	this->_energyPoints = 50;
 	this->_attackDamage = 20;
 }
 
 ScavTrap::ScavTrap(const ScavTrap &copy) : ClapTrap(copy._name){
-	std::cout << "ScavTrap : Copy constructor called by " << this->_name << std::endl << std::endl;
+	std::cout << "ScavTrap : Copy constructor called with " << this->_name << std::endl;
 	this->_hitPoints = copy._hitPoints;
 	this->_energyPoints = copy._energyPoints;
 	this->_attackDamage = copy._attackDamage;
 }
 
 ScavTrap& ScavTrap::operator=(const ScavTrap &scavtrap) {
-	std::cout << "ScavTrap : Assignement operator called for " << this->_name << " with " << scavtrap._name << std::endl << std::endl;
+	std::cout << "ScavTrap : Assignement operator called for " << this->_name << " with " << scavtrap._name << std::endl;
 	this->_hitPoints = scavtrap._hitPoints;
 	this->_energyPoints = scavtrap._energyPoints;
 	this->_attackDamage = scavtrap._hitPoints;
