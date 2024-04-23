@@ -6,7 +6,7 @@
 /*   By: niromano <niromano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 10:08:55 by niromano          #+#    #+#             */
-/*   Updated: 2024/04/18 11:57:51 by niromano         ###   ########.fr       */
+/*   Updated: 2024/04/23 12:35:24 by niromano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ class Cure : public AMateria {
 
 	public :
 
-	Cure();
-	Cure(const Cure &copy);
-	Cure& operator=(const Cure &cure);
-	~Cure();
-	AMateria* clone() const;
-	void use(ICharacter& target);
+		Cure();
+		Cure(const Cure &copy);
+		Cure& operator=(const Cure &cure);
+		~Cure();
+		AMateria*	clone() const;
+		void	use(ICharacter& target);
 };
