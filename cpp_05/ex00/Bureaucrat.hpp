@@ -6,7 +6,7 @@
 /*   By: niromano <niromano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 10:54:37 by niromano          #+#    #+#             */
-/*   Updated: 2024/04/23 14:55:57 by niromano         ###   ########.fr       */
+/*   Updated: 2024/05/15 14:06:31 by niromano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,19 +27,10 @@ class Bureaucrat {
 		void	downGrade();
 
 		class GradeTooHighException : public std::exception {
-		
-			public :
-		
-				GradeTooHighException();
-				const char* what() const throw();
+			const char* what() const throw();
 		};
-
 		class GradeTooLowException : public std::exception {
-		
-			public :
-		
-				GradeTooLowException();
-				const char* what() const throw();
+			const char* what() const throw();
 		};
 
 	private :
@@ -48,4 +39,4 @@ class Bureaucrat {
 		int					_grade;
 };
 
-std::ostream& operator<<(std::ostream &s, const Bureaucrat &bureaucrat);
+std::ostream& operator<<(std::ostream &out, const Bureaucrat &bureaucrat);
