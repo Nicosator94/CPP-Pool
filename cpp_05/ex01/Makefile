@@ -1,7 +1,9 @@
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -MMD -std=c++98
 
-SOURCES = main.cpp
+SOURCES = main.cpp \
+			Bureaucrat.cpp \
+			Form.cpp
 
 SRC = ./
 DIR = objs_deps/
@@ -13,7 +15,7 @@ DEPS = $(addprefix $(DIR), $(DEP))
 OBJ = $(SOURCES:.cpp=.o)
 DEP = $(SOURCES:.cpp=.d)
 
-NAME = tmp
+NAME = form
 
 all : $(NAME)
 
