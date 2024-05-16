@@ -22,5 +22,7 @@ abstract
 interface
 bureaucrat
 form
+plus_form
+*_shrubbery
 objs_deps
 .vscode
