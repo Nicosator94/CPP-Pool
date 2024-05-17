@@ -6,7 +6,7 @@
 /*   By: niromano <niromano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 14:26:43 by niromano          #+#    #+#             */
-/*   Updated: 2024/05/16 18:07:30 by niromano         ###   ########.fr       */
+/*   Updated: 2024/05/17 16:20:51 by niromano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void ShrubberyCreationForm::execute(const Bureaucrat &executor) const {
 		throw AFormNotSigned();
 	if (executor.getGrade() <= this->getExecGrade()) {
 		this->createTree();
+		std::cout << "The \"" << this->_target << "_shrubbery\" file has been created" << std::endl;
 	}
 	else
 		throw GradeTooLowException();

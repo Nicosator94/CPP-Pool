@@ -6,7 +6,7 @@
 /*   By: niromano <niromano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 11:27:35 by niromano          #+#    #+#             */
-/*   Updated: 2024/05/15 14:10:48 by niromano         ###   ########.fr       */
+/*   Updated: 2024/05/17 16:09:44 by niromano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,13 @@ class Form {
 		int getExecGrade() const;
 		void beSigned(const Bureaucrat &b);
 
+	private :
+
+		const std::string _name;
+		bool _sign;
+		int _signGrade;
+		int _execGrade;
+
 		class GradeTooHighException : public std::exception {
 			const char* what() const throw();
 		};
@@ -41,13 +48,6 @@ class Form {
 		class FormAlreadySigned : public std::exception {
 			const char* what() const throw();
 		};
-
-	private :
-
-		const std::string	_name;
-		bool				_sign;
-		int					_signGrade;
-		int					_execGrade;
 };
 
 std::ostream& operator<<(std::ostream &out, const Form &form);

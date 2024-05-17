@@ -6,7 +6,7 @@
 /*   By: niromano <niromano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 14:24:50 by niromano          #+#    #+#             */
-/*   Updated: 2024/05/16 16:14:13 by niromano         ###   ########.fr       */
+/*   Updated: 2024/05/17 16:29:43 by niromano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,11 @@ void AForm::beSigned(const Bureaucrat &b) {
 
 const char* AForm::GradeTooHighException::what() const throw() {return "The grade is too high";}
 const char* AForm::GradeTooLowException::what() const throw() {return "The grade is too low";}
-const char* AForm::AFormAlreadySigned::what() const throw() {return "The Aform is already signed";}
-const char* AForm::AFormNotSigned::what() const throw() {return "The Aform is not signed";}
+const char* AForm::AFormAlreadySigned::what() const throw() {return "The form is already signed";}
+const char* AForm::AFormNotSigned::what() const throw() {return "The form is not signed";}
 
 std::ostream& operator<<(std::ostream &out, const AForm &Aform) {
-	out << "The " << Aform.getName() << " Aform has the properties :" << std::endl;
+	out << "The " << Aform.getName() << " form has the properties :" << std::endl;
 	out << " - Grade for sign : " << Aform.getSignGrade() << std::endl;
 	out << " - Grade for exec : " << Aform.getExecGrade() << std::endl;
 	out << " - Signed : " << (Aform.getSign() ? "Signed" : "Not signed");

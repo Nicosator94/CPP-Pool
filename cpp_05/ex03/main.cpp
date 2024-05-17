@@ -6,7 +6,7 @@
 /*   By: niromano <niromano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 10:54:08 by niromano          #+#    #+#             */
-/*   Updated: 2024/05/17 15:59:28 by niromano         ###   ########.fr       */
+/*   Updated: 2024/05/17 16:30:28 by niromano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int main() {
 		Bureaucrat s("Name", 1);
 		std::cout << s << std::endl;
 		Intern intern;
-		AForm *form = intern.makeForm("RobotomyRequestForm", "Target");
+		AForm *form = intern.makeForm("PresidentialPardonForm", "Target");
 		std::cout << *form << std::endl;
 		s.signForm(*form);
 		s.executeForm(*form);
@@ -37,7 +37,7 @@ int main() {
 		Bureaucrat s("Name", 150);
 		std::cout << s << std::endl;
 		Intern intern;
-		AForm *form = intern.makeForm("RobotomyRequestForm", "Target");
+		AForm *form = intern.makeForm("PresidentialPardonForm", "Target");
 		std::cout << *form << std::endl;
 		s.signForm(*form);
 		s.executeForm(*form);
