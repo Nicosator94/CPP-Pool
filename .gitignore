@@ -25,5 +25,6 @@ form
 plus_form
 *_shrubbery
 intern
+static_cast
 objs_deps
 .vscode
