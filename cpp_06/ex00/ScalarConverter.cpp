@@ -6,7 +6,7 @@
 /*   By: niromano <niromano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 09:37:25 by niromano          #+#    #+#             */
-/*   Updated: 2024/05/22 12:31:15 by niromano         ###   ########.fr       */
+/*   Updated: 2024/05/22 16:01:29 by niromano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,18 @@
 #include "ScalarConverter.hpp"
 
 static int check_exception(const std::string &s) {
-	std::string exception[6] = { "+inff", "+inf", "-inff", "-inf", "nanf", "nan" };
+	std::string exception[8] = { "inff", "inf", "+inff", "+inf", "-inff", "-inf", "nanf", "nan" };
 	int i = 0;
 	while (exception[i] != s) {
 		i ++;
-		if (i == 6)
+		if (i == 8)
 			break;
 	}
-	if (i < 2)
+	if (i < 4)
 		return POS_INF;
-	else if (i < 4)
-		return NEG_INF;
 	else if (i < 6)
+		return NEG_INF;
+	else if (i < 8)
 		return NAN;
 	return -1;
 }
@@ -48,7 +48,7 @@ static int check_type(const std::string &s) {
 		}
 		else if (i == s.length() - 1 && s[i] == 'f')
 			return FLOAT;
-		else if (i == s.length() - 1 && p == 1)
+		else if (i == s.length() - 1 && p == 1 && isdigit(static_cast <int> (s[i])))
 			return DOUBLE;
 		else if (!isdigit(s[i]))
 			return -1;
@@ -63,15 +63,36 @@ static void print_base_char(const std::string &s) {
 	std::cout << "double: " << static_cast <double> (s[0]) << ".0" << std::endl;
 }
 
-static void print_base_int(const std::string &s) {
+static bool isoverflow(const std::string &s) {
+	if ((s[0] == '-' && s.length() > 11) || (s[0] != '-' && s.length() > 10))
+		return true;
 	int nb = atoi(s.c_str());
-	if (nb >= 32 && nb <= 126)
+	if (s[0] == '-' && nb > 0)
+		return true;
+	else if (s[0] != '-' && nb < 0)
+		return true;
+	if ((s[0] == '-' && s.length() == 11 && s[1] > '2') || (s[0] != '-' && s.length() == 10 && s[0] > '2'))
+		return true;
+	return false;
+}
+
+static void print_base_int(const std::string &s) {
+	bool overflow = isoverflow(s);
+	int nb = atoi(s.c_str());
+	if (overflow == true)
+		std::cout << "char: impossible" << std::endl;
+	else if (nb >= 32 && nb <= 126)
 		std::cout << "char: \'" << static_cast <char> (nb) << "\'" << std::endl;
-	else
+	else if (nb >= 0 && nb <= 127)
 		std::cout << "char: " << "Non displayable" << std::endl;
-	std::cout << "int: " << nb << std::endl;
-	std::cout << "float: " << static_cast <float> (nb) << ".0f" << std::endl;
-	std::cout << "double: " << static_cast <double> (nb) << ".0" << std::endl;
+	else
+		std::cout << "char: impossible" << std::endl;
+	if (overflow == false)
+		std::cout << "int: " << nb << std::endl;
+	else
+		std::cout << "int: impossible" << std::endl;
+	std::cout << "float: " << strtof(s.c_str(), NULL) << ".0f" << std::endl;
+	std::cout << "double: " << strtod(s.c_str(), NULL) << ".0" << std::endl;
 }
 
 static void print_base_float(const std::string &s) {
@@ -92,7 +113,7 @@ static void print_base_float(const std::string &s) {
 }
 
 static void print_base_double(const std::string &s) {
-	float nb = strtod(s.c_str(), NULL);
+	double nb = strtod(s.c_str(), NULL);
 	if (nb >= 32 && nb <= 126)
 		std::cout << "char: \'" << static_cast <char> (nb) << "\'" << std::endl;
 	else
