@@ -6,21 +6,54 @@
 /*   By: niromano <niromano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 09:37:25 by niromano          #+#    #+#             */
-/*   Updated: 2024/05/21 14:29:11 by niromano         ###   ########.fr       */
+/*   Updated: 2024/05/22 12:31:15 by niromano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <cstdlib>
+#include <string>
 #include "ScalarConverter.hpp"
 
+static int check_exception(const std::string &s) {
+	std::string exception[6] = { "+inff", "+inf", "-inff", "-inf", "nanf", "nan" };
+	int i = 0;
+	while (exception[i] != s) {
+		i ++;
+		if (i == 6)
+			break;
+	}
+	if (i < 2)
+		return POS_INF;
+	else if (i < 4)
+		return NEG_INF;
+	else if (i < 6)
+		return NAN;
+	return -1;
+}
+
 static int check_type(const std::string &s) {
+	int i = check_exception(s);
+	if (i != -1)
+		return i;
 	if (s.length() == 1)
 		return CHAR;
-	// for (unsigned int i = 0; i < s.length(); i++) {
-	// 	if (!isdigit(s[i]))
-	// 		std::cout << s[i] << std::endl;
-	// }
-	return -1;
+	int p = 0;
+	for (unsigned int i = 0; i < s.length(); i++) {
+		if (i == 0 && s[i] == '-') {}
+		else if (s[i] == '.') {
+			p++;
+			if (s[0] == '.' || (s[0] == '-' && s[1] == '.') || (s[i] == '.' && (i == s.length() - 1 || s[i + 1] == 'f')) || p > 1)
+				return -1;
+		}
+		else if (i == s.length() - 1 && s[i] == 'f')
+			return FLOAT;
+		else if (i == s.length() - 1 && p == 1)
+			return DOUBLE;
+		else if (!isdigit(s[i]))
+			return -1;
+	}
+	return INT;
 }
 
 static void print_base_char(const std::string &s) {
@@ -30,22 +63,93 @@ static void print_base_char(const std::string &s) {
 	std::cout << "double: " << static_cast <double> (s[0]) << ".0" << std::endl;
 }
 
+static void print_base_int(const std::string &s) {
+	int nb = atoi(s.c_str());
+	if (nb >= 32 && nb <= 126)
+		std::cout << "char: \'" << static_cast <char> (nb) << "\'" << std::endl;
+	else
+		std::cout << "char: " << "Non displayable" << std::endl;
+	std::cout << "int: " << nb << std::endl;
+	std::cout << "float: " << static_cast <float> (nb) << ".0f" << std::endl;
+	std::cout << "double: " << static_cast <double> (nb) << ".0" << std::endl;
+}
+
+static void print_base_float(const std::string &s) {
+	float nb = strtof(s.c_str(), NULL);
+	if (nb >= 32 && nb <= 126)
+		std::cout << "char: \'" << static_cast <char> (nb) << "\'" << std::endl;
+	else
+		std::cout << "char: " << "Non displayable" << std::endl;
+	std::cout << "int: " << static_cast <int> (nb) << std::endl;
+	if (static_cast <int> (nb) == nb) {
+		std::cout << "float: " << nb << ".0f" << std::endl;
+		std::cout << "double: " << static_cast <double> (nb) << ".0" << std::endl;
+	}
+	else {
+		std::cout << "float: " << nb << "f" << std::endl;
+		std::cout << "double: " << static_cast <double> (nb) << std::endl;
+	}
+}
+
+static void print_base_double(const std::string &s) {
+	float nb = strtod(s.c_str(), NULL);
+	if (nb >= 32 && nb <= 126)
+		std::cout << "char: \'" << static_cast <char> (nb) << "\'" << std::endl;
+	else
+		std::cout << "char: " << "Non displayable" << std::endl;
+	std::cout << "int: " << static_cast <int> (nb) << std::endl;
+	if (static_cast <int> (nb) == nb) {
+		std::cout << "float: " << static_cast <float> (nb) << ".0f" << std::endl;
+		std::cout << "double: " << nb << ".0" << std::endl;
+	}
+	else {
+		std::cout << "float: " << static_cast <float> (nb) << "f" << std::endl;
+		std::cout << "double: " << nb << std::endl;
+	}
+}
+
+static void print_base_exception(int e) {
+	std::cout << "char: impossible" << std::endl;
+	std::cout << "int: impossible" << std::endl;
+	if (e == POS_INF) {
+		std::cout << "float: inff" << std::endl;
+		std::cout << "double: inf" << std::endl;
+	}
+	else if (e == NEG_INF) {
+		std::cout << "float: -inff" << std::endl;
+		std::cout << "double: -inf" << std::endl;
+	}
+	else if (e == NAN) {
+		std::cout << "float: nanf" << std::endl;
+		std::cout << "double: nan" << std::endl;
+	}
+}
+
 void ScalarConverter::convert(const std::string &s) {
 	switch (check_type(s)) {
 		case CHAR :
 			print_base_char(s);
 			break;
 		case INT :
-			std::cout << "int" << std::endl;
+			print_base_int(s);
 			break;
 		case FLOAT :
-			std::cout << "float" << std::endl;
+			print_base_float(s);
 			break;
 		case DOUBLE :
-			std::cout << "double" << std::endl;
+			print_base_double(s);
+			break;
+		case POS_INF :
+			print_base_exception(POS_INF);
+			break;
+		case NEG_INF :
+			print_base_exception(NEG_INF);
+			break;
+		case NAN :
+			print_base_exception(NAN);
 			break;
 		default :
-			std::cout << "nothing" << std::endl;
+			print_base_exception(NAN);
 			break;
 	}
 }

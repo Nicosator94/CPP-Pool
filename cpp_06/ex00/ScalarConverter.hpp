@@ -6,7 +6,7 @@
 /*   By: niromano <niromano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 09:37:27 by niromano          #+#    #+#             */
-/*   Updated: 2024/05/21 13:43:57 by niromano         ###   ########.fr       */
+/*   Updated: 2024/05/22 11:38:55 by niromano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,10 @@ enum type{
 	CHAR,
 	INT,
 	FLOAT,
-	DOUBLE
+	DOUBLE,
+	POS_INF,
+	NEG_INF,
+	NAN
 };
 
 class ScalarConverter {
