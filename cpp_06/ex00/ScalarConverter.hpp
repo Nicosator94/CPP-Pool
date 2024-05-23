@@ -6,13 +6,16 @@
 /*   By: niromano <niromano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 09:37:27 by niromano          #+#    #+#             */
-/*   Updated: 2024/05/22 11:38:55 by niromano         ###   ########.fr       */
+/*   Updated: 2024/05/23 15:12:47 by niromano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include <string>
+
+#define INT_MAX 2147483647
+#define INT_MIN -2147483648
 
 enum type{
 	CHAR,

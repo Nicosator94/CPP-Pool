@@ -6,7 +6,7 @@
 /*   By: niromano <niromano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 09:37:25 by niromano          #+#    #+#             */
-/*   Updated: 2024/05/22 16:01:29 by niromano         ###   ########.fr       */
+/*   Updated: 2024/05/23 15:31:46 by niromano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,32 +63,16 @@ static void print_base_char(const std::string &s) {
 	std::cout << "double: " << static_cast <double> (s[0]) << ".0" << std::endl;
 }
 
-static bool isoverflow(const std::string &s) {
-	if ((s[0] == '-' && s.length() > 11) || (s[0] != '-' && s.length() > 10))
-		return true;
-	int nb = atoi(s.c_str());
-	if (s[0] == '-' && nb > 0)
-		return true;
-	else if (s[0] != '-' && nb < 0)
-		return true;
-	if ((s[0] == '-' && s.length() == 11 && s[1] > '2') || (s[0] != '-' && s.length() == 10 && s[0] > '2'))
-		return true;
-	return false;
-}
-
 static void print_base_int(const std::string &s) {
-	bool overflow = isoverflow(s);
-	int nb = atoi(s.c_str());
-	if (overflow == true)
-		std::cout << "char: impossible" << std::endl;
-	else if (nb >= 32 && nb <= 126)
+	long nb = atol(s.c_str());
+	if (nb >= 32 && nb <= 126)
 		std::cout << "char: \'" << static_cast <char> (nb) << "\'" << std::endl;
 	else if (nb >= 0 && nb <= 127)
 		std::cout << "char: " << "Non displayable" << std::endl;
 	else
 		std::cout << "char: impossible" << std::endl;
-	if (overflow == false)
-		std::cout << "int: " << nb << std::endl;
+	if (nb >= INT_MIN && nb <= INT_MAX)
+		std::cout << "int: " << static_cast <int> (nb) << std::endl;
 	else
 		std::cout << "int: impossible" << std::endl;
 	std::cout << "float: " << strtof(s.c_str(), NULL) << ".0f" << std::endl;
@@ -99,9 +83,15 @@ static void print_base_float(const std::string &s) {
 	float nb = strtof(s.c_str(), NULL);
 	if (nb >= 32 && nb <= 126)
 		std::cout << "char: \'" << static_cast <char> (nb) << "\'" << std::endl;
-	else
+	else if (nb >= 0 && nb <= 127)
 		std::cout << "char: " << "Non displayable" << std::endl;
-	std::cout << "int: " << static_cast <int> (nb) << std::endl;
+	else
+		std::cout << "char: impossible" << std::endl;
+	long lnb = atol(s.c_str());
+	if (lnb >= INT_MIN && lnb <= INT_MAX)
+		std::cout << "int: " << static_cast <int> (lnb) << std::endl;
+	else
+		std::cout << "int: impossible" << std::endl;
 	if (static_cast <int> (nb) == nb) {
 		std::cout << "float: " << nb << ".0f" << std::endl;
 		std::cout << "double: " << static_cast <double> (nb) << ".0" << std::endl;
@@ -116,9 +106,15 @@ static void print_base_double(const std::string &s) {
 	double nb = strtod(s.c_str(), NULL);
 	if (nb >= 32 && nb <= 126)
 		std::cout << "char: \'" << static_cast <char> (nb) << "\'" << std::endl;
-	else
+	else if (nb >= 0 && nb <= 127)
 		std::cout << "char: " << "Non displayable" << std::endl;
-	std::cout << "int: " << static_cast <int> (nb) << std::endl;
+	else
+		std::cout << "char: impossible" << std::endl;
+	long lnb = atol(s.c_str());
+	if (lnb >= INT_MIN && lnb <= INT_MAX)
+		std::cout << "int: " << static_cast <int> (lnb) << std::endl;
+	else
+		std::cout << "int: impossible" << std::endl;
 	if (static_cast <int> (nb) == nb) {
 		std::cout << "float: " << static_cast <float> (nb) << ".0f" << std::endl;
 		std::cout << "double: " << nb << ".0" << std::endl;
@@ -165,9 +161,6 @@ void ScalarConverter::convert(const std::string &s) {
 			break;
 		case NEG_INF :
 			print_base_exception(NEG_INF);
-			break;
-		case NAN :
-			print_base_exception(NAN);
 			break;
 		default :
 			print_base_exception(NAN);
