@@ -14,7 +14,7 @@ DEPS = $(addprefix $(DIR), $(DEP))
 OBJ = $(SOURCES:.cpp=.o)
 DEP = $(SOURCES:.cpp=.d)
 
-NAME = static_cast
+NAME = scalarconverter
 
 all : $(NAME)
 
