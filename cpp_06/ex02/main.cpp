@@ -6,11 +6,12 @@
 /*   By: niromano <niromano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 16:46:21 by niromano          #+#    #+#             */
-/*   Updated: 2024/06/04 15:34:11 by niromano         ###   ########.fr       */
+/*   Updated: 2024/06/04 16:10:40 by niromano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <string>
 #include <cstdlib>
 #include <ctime>
 #include "Base.hpp"
@@ -19,40 +20,61 @@
 #include "C.hpp"
 
 Base * generate(void) {
-	// It randomly instanciates A, B or C and returns the instance as a Base pointer. Feel free
-	// to use anything you like for the random choice implementation.
-	Base *ptr;
 	std::srand(std::time(0));
 	int value = rand() % 3;
-	if (value == 0) {
-		A *a = new A;
-		ptr = dynamic_cast<Base*>(a);
+	switch (value) {
+		case 0:
+			return new A;
+		case 1:
+			return new B;
+		case 2:
+			return new C;
+		default:
+			return NULL;
 	}
-	else if (value == 1) {
-		B *b = new B;
-		ptr = dynamic_cast<Base*>(b);
-	}
-	else {
-		C *c = new C;
-		ptr = dynamic_cast<Base*>(c);
-	}
-	return ptr;
 }
 
 void identify(Base* p) {
-	(void)p;
-	// It prints the actual type of the object pointed to by p: "A", "B" or "C".
+	A *a = dynamic_cast<A*>(p);
+	if (a) {
+		std::cout << "Class A !" << std::endl;
+		return ;
+	}
+	B *b = dynamic_cast<B*>(p);
+	if (b) {
+		std::cout << "Class B !" << std::endl;
+		return ;
+	}
+	C *c = dynamic_cast<C*>(p);
+	if (c) {
+		std::cout << "Class C !" << std::endl;
+		return ;
+	}
 }
 
 void identify(Base& p) {
-	(void)p;
-	// It prints the actual type of the object pointed to by p: "A", "B" or "C". Using a pointer
-	// inside this function is forbidden.
+	try {
+		(void)dynamic_cast<A&>(p);
+		std::cout << "Class A !" << std::endl;
+	}
+	catch (std::exception) {}
+	try {
+		(void)dynamic_cast<B&>(p);
+		std::cout << "Class B !" << std::endl;
+	}
+	catch (std::exception) {}
+	try {
+		(void)dynamic_cast<C&>(p);
+		std::cout << "Class C !" << std::endl;
+	}
+	catch (std::exception) {}
 }
 
 int main() {
 	Base *ptr;
 	ptr = generate();
+	identify(ptr);
+	identify(*ptr);
 	delete ptr;
 	return 0;
 }
