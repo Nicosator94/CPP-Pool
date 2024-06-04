@@ -6,7 +6,7 @@
 /*   By: niromano <niromano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 09:37:27 by niromano          #+#    #+#             */
-/*   Updated: 2024/05/23 15:12:47 by niromano         ###   ########.fr       */
+/*   Updated: 2024/06/04 12:16:31 by niromano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,6 @@ class ScalarConverter {
 
 		ScalarConverter();
 		ScalarConverter(const ScalarConverter &copy);
-		ScalarConverter& operator=(ScalarConverter &scalarconverter);
+		ScalarConverter& operator=(const ScalarConverter &scalarconverter);
 		~ScalarConverter();
 };

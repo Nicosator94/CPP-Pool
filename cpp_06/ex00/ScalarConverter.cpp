@@ -6,7 +6,7 @@
 /*   By: niromano <niromano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 09:37:25 by niromano          #+#    #+#             */
-/*   Updated: 2024/05/23 15:31:46 by niromano         ###   ########.fr       */
+/*   Updated: 2024/06/04 12:17:43 by niromano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -170,5 +170,8 @@ void ScalarConverter::convert(const std::string &s) {
 
 ScalarConverter::ScalarConverter() {}
 ScalarConverter::ScalarConverter(const ScalarConverter &copy) {(void)copy;}
-ScalarConverter& ScalarConverter::operator=(ScalarConverter &scalarconverter) {return scalarconverter;}
+ScalarConverter& ScalarConverter::operator=(const ScalarConverter &scalarconverter) {
+	(void)scalarconverter;
+	return *this;
+}
 ScalarConverter::~ScalarConverter() {}
