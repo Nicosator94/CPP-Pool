@@ -28,5 +28,6 @@ intern
 scalarconverter
 serialization
 base
+template
 objs_deps
 .vscode
