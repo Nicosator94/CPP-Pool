@@ -29,5 +29,7 @@ scalarconverter
 serialization
 base
 template
+iter
+array
 objs_deps
 .vscode
