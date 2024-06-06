@@ -31,5 +31,6 @@ base
 template
 iter
 array
+easy
 objs_deps
 .vscode

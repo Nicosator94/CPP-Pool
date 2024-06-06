@@ -6,19 +6,18 @@
 /*   By: niromano <niromano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 13:19:55 by niromano          #+#    #+#             */
-/*   Updated: 2024/06/05 14:22:42 by niromano         ###   ########.fr       */
+/*   Updated: 2024/06/06 14:19:05 by niromano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-template <class T>
-class Array {
+template <typename T> class Array {
 
 	public :
 
 		Array() {
-			this->_array = new T[];
+			this->_array = new T[0];
 			this->_size = 0;
 		}
 
