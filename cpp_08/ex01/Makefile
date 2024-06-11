@@ -1,7 +1,8 @@
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -MMD -std=c++98
 
-SOURCES = main.cpp
+SOURCES = main.cpp \
+			Span.cpp
 
 SRC = ./
 DIR = objs_deps/
@@ -13,7 +14,7 @@ DEPS = $(addprefix $(DIR), $(DEP))
 OBJ = $(SOURCES:.cpp=.o)
 DEP = $(SOURCES:.cpp=.d)
 
-NAME = template
+NAME = span
 
 all : $(NAME)
 

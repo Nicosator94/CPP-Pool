@@ -32,5 +32,6 @@ template
 iter
 array
 easy
+span
 objs_deps
 .vscode

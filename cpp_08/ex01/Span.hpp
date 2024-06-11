@@ -1,24 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   easyfind.hpp                                       :+:      :+:    :+:   */
+/*   Span.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: niromano <niromano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/06 14:14:42 by niromano          #+#    #+#             */
-/*   Updated: 2024/06/11 18:05:41 by niromano         ###   ########.fr       */
+/*   Created: 2024/06/11 18:09:34 by niromano          #+#    #+#             */
+/*   Updated: 2024/06/11 20:11:23 by niromano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include <iostream>
-#include <algorithm>
+#include <vector>
 
-template <typename T> void easyfind(T container, int toFind) {
-	typename T::iterator it = std::find(container.begin(), container.end(), toFind);
-	if (it != container.end())
-		std::cout << "The value found is : " << *it << std::endl;
-	else
-		throw std::out_of_range("Not found !");
-}
+class Span {
+
+	public :
+
+		Span();
+		Span(unsigned int size);
+		Span(const Span &copy);
+		Span& operator=(const Span &span);
+		~Span();
+		void addNumber(int newNb);
+		int shortestSpan();
+		int longestSpan();
+		void addMoreNumber(std::vector<int>::iterator start, std::vector<int>::iterator end);
+
+	private :
+
+		std::vector<int> _array;
+		unsigned int _size;
+};
