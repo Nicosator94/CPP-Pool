@@ -13,7 +13,7 @@ DEPS = $(addprefix $(DIR), $(DEP))
 OBJ = $(SOURCES:.cpp=.o)
 DEP = $(SOURCES:.cpp=.d)
 
-NAME = template
+NAME = mutant
 
 all : $(NAME)
 

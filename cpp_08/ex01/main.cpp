@@ -6,15 +6,14 @@
 /*   By: niromano <niromano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 16:19:13 by niromano          #+#    #+#             */
-/*   Updated: 2024/06/11 20:30:37 by niromano         ###   ########.fr       */
+/*   Updated: 2024/06/12 14:21:25 by niromano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "Span.hpp"
 
-int main()
-{
+int main() {
 	try {
 		Span sp = Span(7);
 		sp.addNumber(6);
