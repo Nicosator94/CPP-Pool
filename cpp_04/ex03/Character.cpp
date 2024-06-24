@@ -6,7 +6,7 @@
 /*   By: niromano <niromano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 10:28:20 by niromano          #+#    #+#             */
-/*   Updated: 2024/06/24 15:11:44 by niromano         ###   ########.fr       */
+/*   Updated: 2024/06/24 15:17:17 by niromano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,12 @@
 #include "ICharacter.hpp"
 #include "Character.hpp"
 #include "AMateria.hpp"
+
+Character::Character() : _name("Default_name") {
+	for (int i = 0; i < 4; i++) {
+		_materia[i] = NULL;
+	}
+}
 
 Character::Character(const std::string &name) : _name(name) {
 	for (int i = 0; i < 4; i++) {

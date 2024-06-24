@@ -6,7 +6,7 @@
 /*   By: niromano <niromano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 10:20:08 by niromano          #+#    #+#             */
-/*   Updated: 2024/04/23 12:35:16 by niromano         ###   ########.fr       */
+/*   Updated: 2024/06/24 15:16:36 by niromano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ class Character : public ICharacter {
 
 	public :
 
+		Character();
 		Character(const std::string &name);
 		Character(const Character &copy);
 		Character& operator=(const Character &character);
