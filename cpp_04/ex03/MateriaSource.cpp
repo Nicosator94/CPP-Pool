@@ -6,7 +6,7 @@
 /*   By: niromano <niromano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 11:18:46 by niromano          #+#    #+#             */
-/*   Updated: 2024/04/18 12:53:57 by niromano         ###   ########.fr       */
+/*   Updated: 2024/06/24 15:10:35 by niromano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ void MateriaSource::learnMateria(AMateria* m) {
 			return;
 		}
 	}
+	delete m;
 }
 
 AMateria* MateriaSource::createMateria(const std::string& type) {

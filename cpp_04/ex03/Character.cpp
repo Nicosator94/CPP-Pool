@@ -6,7 +6,7 @@
 /*   By: niromano <niromano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 10:28:20 by niromano          #+#    #+#             */
-/*   Updated: 2024/04/22 14:42:00 by niromano         ###   ########.fr       */
+/*   Updated: 2024/06/24 15:11:44 by niromano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ void Character::equip(AMateria* m) {
 			return;
 		}
 	}
+	delete m;
 }
 
 void Character::unequip(int idx) {

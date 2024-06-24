@@ -6,7 +6,7 @@
 /*   By: niromano <niromano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 17:00:06 by niromano          #+#    #+#             */
-/*   Updated: 2024/04/16 18:22:22 by niromano         ###   ########.fr       */
+/*   Updated: 2024/06/24 11:20:56 by niromano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,11 @@ Brain::~Brain() {
 }
 
 void Brain::displayIdeas() const {
-	for (int i = 0; i < 100; i++) {
+	for (int i = 0; i < 5; i++) {
+		std::cout << this->_ideas[i] << std::endl;
+	}
+	std::cout << "[...]" << std::endl;
+	for (int i = 95; i < 100; i++) {
 		std::cout << this->_ideas[i] << std::endl;
 	}
 }
