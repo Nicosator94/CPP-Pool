@@ -6,7 +6,7 @@
 /*   By: niromano <niromano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 11:18:46 by niromano          #+#    #+#             */
-/*   Updated: 2024/06/24 15:10:35 by niromano         ###   ########.fr       */
+/*   Updated: 2024/07/10 15:45:27 by niromano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,7 @@ MateriaSource::MateriaSource() {
 MateriaSource::MateriaSource(const MateriaSource &copy) {
 	for (int i = 0; i < 4; i++) {
 		if (this->_materia[i] != NULL) {
-			delete this->_materia[i];
-			this->_materia[i] = copy._materia[i];
+			this->_materia[i] = copy._materia[i]->clone();
 		}
 	}
 }
@@ -30,8 +29,7 @@ MateriaSource::MateriaSource(const MateriaSource &copy) {
 MateriaSource& MateriaSource::operator=(const MateriaSource &materiasource) {
 	for (int i = 0; i < 4; i++) {
 		if (this->_materia[i] != NULL) {
-			delete this->_materia[i];
-			this->_materia[i] = materiasource._materia[i];
+			this->_materia[i] = materiasource._materia[i]->clone();
 		}
 	}
 	return *this;
@@ -45,6 +43,10 @@ MateriaSource::~MateriaSource() {
 }
 
 void MateriaSource::learnMateria(AMateria* m) {
+	for (int i = 0; i < 4; i++) {
+		if (this->_materia[i] == m)
+			return;
+	}
 	for (int i = 0; i < 4; i++) {
 		if (this->_materia[i] == NULL) {
 			this->_materia[i] = m;

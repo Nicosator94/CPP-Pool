@@ -6,7 +6,7 @@
 /*   By: niromano <niromano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 10:28:20 by niromano          #+#    #+#             */
-/*   Updated: 2024/06/24 15:17:17 by niromano         ###   ########.fr       */
+/*   Updated: 2024/07/10 15:25:23 by niromano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,19 +30,13 @@ Character::Character(const std::string &name) : _name(name) {
 
 Character::Character(const Character &copy) : _name(copy._name) {
 	for (int i = 0; i < 4; i++) {
-		if (this->_materia[i] != NULL) {
-			delete this->_materia[i];
-			this->_materia[i] = copy._materia[i];
-		}
+		this->_materia[i] = copy._materia[i]->clone();
 	}
 }
 
 Character& Character::operator=(const Character &character) {
 	for (int i = 0; i < 4; i++) {
-		if (this->_materia[i] != NULL) {
-			delete this->_materia[i];
-			this->_materia[i] = character._materia[i];
-		}
+		this->_materia[i] = character._materia[i]->clone();
 	}
 	return *this;
 }
@@ -63,18 +57,26 @@ void Character::equip(AMateria* m) {
 			return;
 		}
 	}
-	delete m;
+}
+
+AMateria *Character::getMateria(int idx) {
+	if (this->_materia[idx] != NULL)
+		return this->_materia[idx];
+	return NULL;
 }
 
 void Character::unequip(int idx) {
-	if (this->_materia[idx] != NULL) {
-		delete this->_materia[idx];
-		this->_materia[idx] = NULL;
+	if (idx >= 0 && idx <= 3) {
+		if (this->_materia[idx] != NULL) {
+			this->_materia[idx] = NULL;
+		}
 	}
 }
 
 void Character::use(int idx, ICharacter& target) {
-	if (this->_materia[idx] != NULL) {
-		this->_materia[idx]->use(target);
+	if (idx >= 0 && idx <= 3) {
+		if (this->_materia[idx] != NULL) {
+			this->_materia[idx]->use(target);
+		}
 	}
 }
