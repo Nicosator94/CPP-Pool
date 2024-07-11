@@ -6,7 +6,7 @@
 /*   By: niromano <niromano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 10:28:20 by niromano          #+#    #+#             */
-/*   Updated: 2024/07/10 15:25:23 by niromano         ###   ########.fr       */
+/*   Updated: 2024/07/11 11:07:45 by niromano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@ void Character::equip(AMateria* m) {
 			return;
 		}
 	}
+	// std::cout << "Inventory full !" << std::endl;
+	return;
 }
 
 AMateria *Character::getMateria(int idx) {
@@ -71,6 +73,8 @@ void Character::unequip(int idx) {
 			this->_materia[idx] = NULL;
 		}
 	}
+	// else
+		// std::cout << idx << " is a bad index for unequip !" << std::endl;
 }
 
 void Character::use(int idx, ICharacter& target) {
@@ -79,4 +83,6 @@ void Character::use(int idx, ICharacter& target) {
 			this->_materia[idx]->use(target);
 		}
 	}
+	// else
+	// 	std::cout << idx << " is a bad index for use !" << std::endl;
 }

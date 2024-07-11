@@ -6,10 +6,11 @@
 /*   By: niromano <niromano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 11:18:46 by niromano          #+#    #+#             */
-/*   Updated: 2024/07/10 15:45:27 by niromano         ###   ########.fr       */
+/*   Updated: 2024/07/11 11:08:00 by niromano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <iostream>
 #include "MateriaSource.hpp"
 
 MateriaSource::MateriaSource() {
@@ -44,8 +45,10 @@ MateriaSource::~MateriaSource() {
 
 void MateriaSource::learnMateria(AMateria* m) {
 	for (int i = 0; i < 4; i++) {
-		if (this->_materia[i] == m)
+		if (this->_materia[i] == m) {
+			// std::cout << "The materia \"" << m->getType() << "\" already exist !" << std::endl;
 			return;
+		}
 	}
 	for (int i = 0; i < 4; i++) {
 		if (this->_materia[i] == NULL) {
@@ -63,5 +66,6 @@ AMateria* MateriaSource::createMateria(const std::string& type) {
 				return this->_materia[i]->clone();
 		}
 	}
+	// std::cout << "The materia \"" << type << "\" doesn't exist !"<< std::endl;
 	return NULL;
 }
