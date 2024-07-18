@@ -6,7 +6,7 @@
 /*   By: niromano <niromano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 13:19:55 by niromano          #+#    #+#             */
-/*   Updated: 2024/07/18 15:20:47 by niromano         ###   ########.fr       */
+/*   Updated: 2024/07/18 15:30:52 by niromano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ template <typename T> class Array {
 
 		unsigned int size() const {return this->_size;}
 
-		T& operator[](unsigned int idx) const {
+		T& operator[](unsigned int idx) {
 			if (idx > this->_size - 1)
 				throw OutOfBounds();
 			return this->_array[idx];
