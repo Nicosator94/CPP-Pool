@@ -6,28 +6,36 @@
 /*   By: niromano <niromano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 15:14:09 by niromano          #+#    #+#             */
-/*   Updated: 2024/08/21 17:37:39 by niromano         ###   ########.fr       */
+/*   Updated: 2024/08/23 14:22:08 by niromano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 
 int main(int ac, char **av) {
-	if (ac != 2) {
-		std::cout << "Only 1 argument is required !" << std::endl;
-		return 1;
-	}
 	try {
-		std::map<std::string, float> data = getData();
-		// for (std::map<std::string, float>::iterator it = data.begin(); it != data.end(); it++)
-		// 	std::cout << it->first << " = " << it->second << std::endl;
-		(void)av;
-		// std::ifstream file(av[1]);
-		// std::string buf;
-		// while (std::getline(file, buf, '\n')) {
-		// 	std::cout << buf << std::endl;
-		// }
-		// file.close();
+		if (ac != 2)
+			throw Error("Error: could not open file.");
+		std::map<int, float> data = getData("data.csv");
+		std::ifstream inputData(av[1]);
+		if (!inputData.is_open())
+			throw Error("Error: could not open file.");
+		std::string line;
+		std::getline(inputData, line, '\n');
+		if (line != "date | value") {
+			inputData.close();
+			throw Error("Error: missing first line to define data !");
+		}
+		while (std::getline(inputData, line, '\n')) {
+			try {
+				std::string result = bitcoinExchange(line, data);
+				std::cout << result << std::endl;
+			}
+			catch (const std::exception &e) {
+				std::cout << e.what() << std::endl;
+			}
+		}
+		inputData.close();
 	}
 	catch (const std::exception &e) {
 		std::cout << e.what() << std::endl;
