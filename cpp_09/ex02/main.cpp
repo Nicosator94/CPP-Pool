@@ -6,7 +6,7 @@
 /*   By: niromano <niromano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 20:30:19 by niromano          #+#    #+#             */
-/*   Updated: 2024/08/29 19:19:48 by niromano         ###   ########.fr       */
+/*   Updated: 2024/09/25 13:30:14 by niromano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,9 @@
 #include "PmergeMe.hpp"
 
 int main(int ac, char **av) {
-	if (ac != 2) {
-		std::cerr << "Error" << std::endl;
-		return 1;
-	}
 	try {
 		PmergeMe pmergeMe;
-		pmergeMe.initContainers(av[1]);
+		pmergeMe.initContainers(ac, av);
 		pmergeMe.sort();
 	}
 	catch (const std::exception &e) {

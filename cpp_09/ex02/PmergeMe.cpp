@@ -6,7 +6,7 @@
 /*   By: niromano <niromano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 20:30:32 by niromano          #+#    #+#             */
-/*   Updated: 2024/08/30 23:57:56 by niromano         ###   ########.fr       */
+/*   Updated: 2024/09/25 13:33:06 by niromano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,12 @@ PmergeMe& PmergeMe::operator=(const PmergeMe &copy) {
 }
 PmergeMe::~PmergeMe() {}
 
-void PmergeMe::initContainers(const std::string &str) {
-	std::istringstream ss(str);
+void PmergeMe::initContainers(int ac, char **av) {
 	std::string buf;
 	long int nb;
-	while (std::getline(ss, buf, ' ')) {
-		if (buf.empty())
-			continue;
+	int i = 1;
+	while (i < ac) {
+		buf = av[i];
 		if (buf.size() > 10)
 			throw Error();
 		char *endPtr;
@@ -39,6 +38,7 @@ void PmergeMe::initContainers(const std::string &str) {
 				throw Error();
 		this->_vector.push_back(static_cast<int>(nb));
 		this->_deque.push_back(static_cast<int>(nb));
+		i++;
 	}
 	std::cout << "Before : ";
 	for (size_t i = 0; i < this->_vector.size(); i++)

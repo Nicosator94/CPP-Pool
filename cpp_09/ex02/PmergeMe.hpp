@@ -6,7 +6,7 @@
 /*   By: niromano <niromano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 20:30:33 by niromano          #+#    #+#             */
-/*   Updated: 2024/08/30 23:54:50 by niromano         ###   ########.fr       */
+/*   Updated: 2024/09/25 13:29:53 by niromano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ class PmergeMe {
 		PmergeMe& operator=(const PmergeMe &copy);
 		~PmergeMe();
 
-		void initContainers(const std::string &str);
+		void initContainers(int ac, char **av);
 		void sort();
 
 	private :
