@@ -6,7 +6,7 @@
 /*   By: niromano <niromano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 14:46:37 by niromano          #+#    #+#             */
-/*   Updated: 2024/09/25 13:18:12 by niromano         ###   ########.fr       */
+/*   Updated: 2024/09/27 08:37:48 by niromano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,28 +73,11 @@ int doSign(std::stack<int> &tmp, int sign) {
 int resultOfStack(std::stack<int> stack) {
 	std::stack<int> tmp;
 	while (stack.size() != 0) {
-		switch (stack.top()) {
-			case '+':
-				stack.pop();
-				tmp.push(doSign(tmp, '+'));
-				break;
-			case '-':
-				stack.pop();
-				tmp.push(doSign(tmp, '-'));
-				break;
-			case '*':
-				stack.pop();
-				tmp.push(doSign(tmp, '*'));
-				break;
-			case '/':
-				stack.pop();
-				tmp.push(doSign(tmp, '/'));
-				break;
-			default:
-				tmp.push(stack.top());
-				stack.pop();
-				break;
-		}
+		if (stack.top() == '+' || stack.top() == '-' || stack.top() == '*' || stack.top() == '/')
+			tmp.push(doSign(tmp, stack.top()));
+		else
+			tmp.push(stack.top());
+		stack.pop();
 	}
 	return tmp.top();
 }
